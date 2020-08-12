@@ -28,13 +28,18 @@ export default function ButtonAppBar() {
   
   const handleAboutClick = (e) => {
     e.preventDefault()
-    router.push('./About')
+    router.push('./about')
   };
 
   const handleProjectsClick = (e) => {
     e.preventDefault()
-    router.push('./Projects')
+    router.push('./projects')
   };
+
+  const handleHomeClick = (e)=>{
+    e.preventDefault();
+    router.push('./')
+  }
 
   return (
     <React.Fragment>
@@ -42,6 +47,9 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+          <Button color="inherit" onClick={handleHomeClick}>
+            <Typography variant="h6" className={classes.title}>Home</Typography>
+          </Button>
           <Button color="inherit" onClick={handleAboutClick}>
             <Typography variant="h6" className={classes.title}>About</Typography>
           </Button>
