@@ -1,14 +1,13 @@
-import Head from 'next/head'
 /** Custom Modules */
 import NavBar from '../components/NavBar';
-import ProjectButtonChoose from '../components/ProjectButtonChoose';
+import Timeline from '../components/codingProjects/Timeline'
 
 
 export default function Home() {
   return (
     <>
       <NavBar />
-      <ProjectButtonChoose />
+      <Timeline/>
     </>
 
   )
