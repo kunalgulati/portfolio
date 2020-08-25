@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import DescriptionList from '../components/index/Description'
 import SkillSet from '../components/index/SkillSet'
 import WorkExperience from '../components/index/WorkExperience'
+import Education from '../components/index/Education'
 
 import Footer from '../components/Footer';
 
@@ -15,6 +16,7 @@ export default function Index() {
         <DescriptionList />
         <SkillSet/>
         <WorkExperience/>
+        <Education/>
       </Grid>
       <Footer />
     </>

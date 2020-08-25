@@ -30,43 +30,44 @@ export default function CustomizedTimeline() {
   console.log(workExperience)
 
   return (
-  <>
-    <Grid item xs={12} className={classes.titleRoot} key={"workexperience-title"}>
-      <Paper className={classes.paper}>
-        <Typography variant="h4" component="h1" align="center">02 Work Experience</Typography><br></br>
-        <Typography align="center" >My Knowledge Level in Software development and Design Thinking (UX)</Typography><br></br>
-      </Paper>
-    </Grid>
+    <>
+      <Grid item xs={12} className={classes.titleRoot} key={"workexperience-title"}>
+        <Paper className={classes.paper}>
+          <Typography variant="h4" component="h1" align="center">02 Work Experience</Typography><br></br>
+          <Typography align="center" >My Knowledge Level in Software development and Design Thinking (UX)</Typography><br></br>
+        </Paper>
+      </Grid>
 
-    <Timeline align="alternate">
-    {workExperience.data.map((value, index) => {
+      <Timeline align="alternate">
+        {workExperience.data.map((value, index) => {
           return (
-      <TimelineItem>
-        <TimelineOppositeContent>
-          <Typography variant="body1" color="textSecondary">
-            {value.date}
-          </Typography>
-        </TimelineOppositeContent>
-        <TimelineSeparator>
-          <TimelineDot variant="outlined" color="primary" />
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent>
-          <Paper elevation={3} className={classes.paper}>
-            <Typography variant="h6" component="h1">
-              {value.title}
-            </Typography>
-            <Typography>{value.name}, {value.location} </Typography>
-            <br/>
-            {value.description.split('\n').map((item, key) => {
-                return <Typography component="p" key={key}>{item}</Typography>
-            })}
-          </Paper>
-        </TimelineContent>
-      </TimelineItem>
-          )})}
-    </Timeline>
-  </>
+            <TimelineItem>
+              <TimelineOppositeContent>
+                <Typography variant="body1" color="textSecondary">
+                  {value.date}
+                </Typography>
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot variant="outlined" color="primary" />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Paper elevation={3} className={classes.paper}>
+                  <Typography variant="h6" component="h1">
+                    {value.title}
+                  </Typography>
+                  <Typography>{value.name}, {value.location} </Typography>
+                  <br />
+                  {value.description.split('\n').map((item, key) => {
+                    return <Typography component="p" key={key}>{item}</Typography>
+                  })}
+                </Paper>
+              </TimelineContent>
+            </TimelineItem>
+          )
+        })}
+      </Timeline>
+    </>
   );
 
 }
