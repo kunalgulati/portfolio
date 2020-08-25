@@ -56,10 +56,11 @@ export default function ButtonAppBar() {
           <Button  className={classes.button} onClick={handleHomeClick}>
             <Typography variant="h5" component="h5" >Home</Typography>
           </Button>
-          <Button  className={classes.button} onClick={handleCodingProjectClick}>
+          {/* <Button  className={classes.button} onClick={handleCodingProjectClick}>
             <Typography variant="h5" component="h5">Coding Project</Typography>
-          </Button>
-          <Button  className={classes.button} onClick={handleUxProjectsClick}>
+          </Button> */}
+          {/* <Button  className={classes.button} onClick={handleUxProjectsClick}> */}
+          <Button  className={classes.button} target='_blank' href="https://kunalsgulati.wixsite.com/myportfolio/portfolio" >
             <Typography variant="h5" component="h5">UX Project</Typography>
           </Button>
           <Button  className={classes.button}>

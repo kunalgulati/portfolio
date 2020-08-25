@@ -123,7 +123,7 @@ export default function CustomizedTimeline() {
         </Paper>
       </Grid>
 
-      <Timeline align="alternate">
+      <Timeline align="left">
         {data.map((value, index) => {
           return (
             <TimelineItem xs={12} className={classes.timelineItemRoot} key={`timelineItem-${index}`}>

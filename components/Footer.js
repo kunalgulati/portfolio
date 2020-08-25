@@ -8,26 +8,26 @@ import Link from '@material-ui/core/Link';
 function Copyright() {
   return (
     <>
-    <Typography variant="body2" color="textSecondary">
+    <Typography variant="h5" >
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        https://kunalgulati.vercel.app/
+      <Link color="inherit" href="https://kunalgulati.vercel.app/">
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
-    <Typography>{"Made with Love by Kunal Gulati"}</Typography>
+    <Typography variant="h6" >Made with Love by <b>Kunal Gulati</b></Typography>
     </>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   footer: {
+    backgroundColor: '#000000',
     padding: theme.spacing(10, 2),
     marginTop: theme.spacing(5),
     paddingBottom: theme.spacing(10),
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    color: '#FFFFFF',
+    textAlign: 'center'
   },
 }));
 
@@ -38,7 +38,6 @@ export default function StickyFooter() {
     <>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1">My sticky footer can be found here.</Typography>
           <Copyright />
         </Container>
       </footer>

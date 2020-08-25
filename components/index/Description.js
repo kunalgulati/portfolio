@@ -56,8 +56,8 @@ export default function FullWidthGrid() {
         <Paper className={classes.paper} elevation={0}>
           <Typography variant="h1" component="h2">Hey, It's Kunal Here!</Typography><br></br>
           <Typography variant="h5" component="subtitle1">
-            I am a Computing Science and Entrepreneurship Grad (April 2020). <br></br>
-            A Software Engineer along with skills of Service Designer, who wants to create Simplistic Solution and write Clean Code to achieve your Business Requirements at an economical cost <br /><br />
+            I am a <b>Computing Science and Entrepreneurship Grad </b> (April 2020). <br></br>
+            A <b>Software Engineer</b> along with skills of <b>UX Designer {"&"} Researcher</b>, who wants to create Simplistic Solution by writing Clean, Reusable and Optimized Code which achieves your Business Requirements at an economical cost <br /><br />
           </Typography>
           {/* <ViewButton /> */}
         </Paper>
