@@ -12,11 +12,22 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles((theme) => ({
+  root:{
+    // paddingTop: '5%',
+    paddingBottom: '2%',
+    backgroundColor: theme.palette.primary.main
+  },
   titleRoot: {
     marginTop: theme.spacing(4),
   },
   paper: {
     padding: '6px 16px',
+  },
+  paperHeading:{
+    padding: '6px 16px',
+    backgroundColor: theme.palette.secondary.dark,
+    color: "#ffffff",
+    textAlign: 'center',
   },
   secondaryTail: {
     backgroundColor: theme.palette.secondary.main,
@@ -27,11 +38,10 @@ export default function CustomizedTimeline() {
   const classes = useStyles();
 
   return (
-    <>
+    <div className={classes.root}>
       <Grid item xs={12} className={classes.titleRoot} key={"education-title"}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" component="h1" align="center">03 Education</Typography><br></br>
-          <Typography align="center" >My Knowledge Level in Software development and Design Thinking (UX)</Typography><br></br>
+        <Paper className={classes.paperHeading}>
+          <Typography variant="h2" component="h3">03 Education</Typography><br></br>
         </Paper>
       </Grid>
 
@@ -43,7 +53,7 @@ export default function CustomizedTimeline() {
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot variant="outlined" color="primary" />
+            <TimelineDot variant="outlined" color="secondary" />
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
@@ -87,7 +97,7 @@ export default function CustomizedTimeline() {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-    </>
+    </div>
   );
 
 }

@@ -14,11 +14,32 @@ import Grid from '@material-ui/core/Grid'
 import workExperience from '../../lib/data/workExperience';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    // paddingTop: '5%',
+    paddingBottom: '2%',
+    backgroundColor: theme.palette.secondary.main
+  },
   titleRoot: {
     marginTop: theme.spacing(4),
   },
   paper: {
     padding: '6px 16px',
+    backgroundColor: "transparent"
+  },
+  paperHeading: {
+    padding: '6px 16px',
+    backgroundColor: theme.palette.secondary.dark,
+    color: "#ffffff",
+    textAlign: 'center',
+  },
+  title: {
+    color: "primary"
+  },
+  locationTitle: {
+    color: '#464948'
+  },
+  description: {
+    color: "secondary"
   },
   secondaryTail: {
     backgroundColor: theme.palette.secondary.main,
@@ -27,14 +48,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CustomizedTimeline() {
   const classes = useStyles();
-  console.log(workExperience)
 
   return (
-    <>
+    <div className={classes.root}>
       <Grid item xs={12} className={classes.titleRoot} key={"workexperience-title"}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" component="h1" align="center">02 Work Experience</Typography><br></br>
-          <Typography align="center" >My Knowledge Level in Software development and Design Thinking (UX)</Typography><br></br>
+        <Paper className={classes.paperHeading}>
+          <Typography variant="h2" component="h3" >02 Work Experience</Typography><br></br>
         </Paper>
       </Grid>
 
@@ -43,8 +62,8 @@ export default function CustomizedTimeline() {
           return (
             <TimelineItem>
               <TimelineOppositeContent>
-                <Typography variant="body1" color="textSecondary">
-                  {value.date}
+                <Typography variant="subtitle1" color="textSecondary">
+                  <b>{value.date}</b>
                 </Typography>
               </TimelineOppositeContent>
               <TimelineSeparator>
@@ -52,14 +71,18 @@ export default function CustomizedTimeline() {
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent>
-                <Paper elevation={3} className={classes.paper}>
-                  <Typography variant="h6" component="h1">
+                <Paper elevation={0} className={classes.paper}>
+                  <Typography variant="h4" component="h5" className={classes.title}>
                     {value.title}
                   </Typography>
-                  <Typography>{value.name}, {value.location} </Typography>
+                  <Typography variant="h6" component="body1" className={classes.locationTitle}>
+                    {value.name}, {value.location} <br />
+                  </Typography>
                   <br />
                   {value.description.split('\n').map((item, key) => {
-                    return <Typography component="p" key={key}>{item}</Typography>
+                    return (
+                      <Typography variant="subtitle1" component="p" key={key} className={classes.description}>{item}</Typography>
+                    )
                   })}
                 </Paper>
               </TimelineContent>
@@ -67,7 +90,7 @@ export default function CustomizedTimeline() {
           )
         })}
       </Timeline>
-    </>
+    </div>
   );
 
 }

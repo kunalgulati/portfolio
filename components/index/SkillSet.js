@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 
 import {
   uxSkills,
@@ -17,6 +16,10 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: theme.palette.primary.main,
+    paddingBottom: '2%'
+  },
+  listRoot: {
     flexGrow: 1,
   },
   paper: {
@@ -24,6 +27,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
     height: "100%",
+    backgroundColor: 'transparent',
+  },
+  paperHeader: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    height: "100%",
+    backgroundColor: theme.palette.secondary.dark,
+    color: "#FFFFFF",
   },
   listSection: {
     backgroundColor: 'inherit',
@@ -38,56 +49,58 @@ export default function CenteredGrid() {
   const classes = useStyles();
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} className={classes.root}>
       <Grid item xs={12}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" component="h1">01 Professional</Typography><br></br>
-          <Typography >My Knowledge Level in Software development and Design Thinking (UX)</Typography><br></br>
+        <Paper className={classes.paperHeader} elevation={0}>
+          <Typography variant="h2" component="h3">02 Skills</Typography><br></br>
+          {/* <Typography variant="h5" >My Knowledge Level in Software development and Design Thinking (UX)</Typography><br></br> */}
         </Paper>
       </Grid>
       <Grid item xs={3}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" component="h1">UX Research</Typography><br></br>
-          <List className={classes.root} subheader={<li />}>
+        <Paper className={classes.paper} elevation={0}>
+          <Typography variant="h4" component="h5">UX Research</Typography><br></br>
+          <List className={classes.listRoot} subheader={<li />}>
             {uxSkills.map((item) => (
               <ListItem key={`item-${item}`}>
-                <ListItemText primary={`${item}`} />
+                <Typography variant="h6" component="body1">{item}</Typography><br></br>
               </ListItem>
             ))}
           </List>
         </Paper>
       </Grid>
       <Grid item xs={3}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" component="h1">Back-End</Typography><br></br>
-          <List className={classes.root}>
+        <Paper className={classes.paper} elevation={0}>
+          <Typography variant="h4" component="h5">Back-End</Typography><br></br>
+          <List className={classes.listRoot}>
             {backendProgrammingSkills.map((item) => (
               <ListItem key={`item-${item}`}>
-                <ListItemText primary={`${item}`} />
+                <ListItemText>
+                  <Typography variant="h6" component="body1">{item}</Typography><br></br>
+                </ListItemText>
               </ListItem>
             ))}
           </List>
         </Paper>
       </Grid>
       <Grid item xs={3}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" component="h1">Front-End</Typography><br></br>
-          <List className={classes.root}>
+        <Paper className={classes.paper} elevation={0}>
+          <Typography variant="h4" component="h5">Front-End</Typography><br></br>
+          <List className={classes.listRoot}>
             {frontEndProgrammingSkills.map((item) => (
               <ListItem key={`item-${item}`}>
-                <ListItemText primary={`${item}`} />
+                <Typography variant="h6" component="body1">{item}</Typography><br></br>
               </ListItem>
             ))}
           </List>
         </Paper>
       </Grid>
       <Grid item xs={3}>
-        <Paper className={classes.paper}>
-          <Typography variant="h4" component="h1">Programming Related</Typography><br></br>
-          <List className={classes.root}>
+        <Paper className={classes.paper} elevation={0}>
+          <Typography variant="h4" component="h5">Programming Related</Typography><br></br>
+          <List className={classes.listRoot}>
             {otherSkills.map((item) => (
               <ListItem key={`item-${item}`}>
-                <ListItemText primary={`${item}`} />
+                <Typography variant="h6" component="body1">{item}</Typography><br></br>
               </ListItem>
             ))}
           </List>

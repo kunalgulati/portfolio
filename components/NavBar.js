@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  button: {
+    color: "textPrimary",
+    textTransform: "none",
+    paddingRight: theme.spacing(5),
+  }
 }));
 
 export default function ButtonAppBar() {
@@ -46,13 +51,20 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" elevation={0} backgroundColor={"transparent"}>
         <Toolbar>
-          <Button color="inherit" onClick={handleHomeClick}>Home</Button>
-          {/* <Button color="inherit" onClick={handleAboutClick}>About</Button> */}
-          <Button color="inherit" onClick={handleCodingProjectClick}>Coding Project</Button>
-          <Button color="inherit" onClick={handleUxProjectsClick}>UX Project</Button>
-          <Button color="inherit">Contact</Button>
+          <Button  className={classes.button} onClick={handleHomeClick}>
+            <Typography variant="h5" component="h5" >Home</Typography>
+          </Button>
+          <Button  className={classes.button} onClick={handleCodingProjectClick}>
+            <Typography variant="h5" component="h5">Coding Project</Typography>
+          </Button>
+          <Button  className={classes.button} onClick={handleUxProjectsClick}>
+            <Typography variant="h5" component="h5">UX Project</Typography>
+          </Button>
+          <Button  className={classes.button}>
+            <Typography variant="h5" component="h5">Contact</Typography>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

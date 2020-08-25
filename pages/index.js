@@ -5,6 +5,7 @@ import DescriptionList from '../components/index/Description'
 import SkillSet from '../components/index/SkillSet'
 import WorkExperience from '../components/index/WorkExperience'
 import Education from '../components/index/Education'
+import ProgrammingProjects from '../components/index/ProgrammingProjects'
 
 import Footer from '../components/Footer';
 
@@ -14,6 +15,7 @@ export default function Index() {
       <NavBar />
       <Grid container spacing={3}>
         <DescriptionList />
+        <ProgrammingProjects />
         <SkillSet/>
         <WorkExperience/>
         <Education/>

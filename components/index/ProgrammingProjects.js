@@ -22,7 +22,9 @@ import codingData from '../../lib/data/codingProject'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flex: '1'
+    // paddingTop: '5%',
+    paddingBottom: '2%',
+    backgroundColor: theme.palette.secondary.main
   },
   timelineItemRoot: {
     width: '100%',
@@ -34,14 +36,34 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     paddingRight: '5px',
-    // bgcolor: "background.paper",
+  },
+  titleRoot: {
+    marginTop: theme.spacing(4),
+  },
+  paperHeading: {
+    padding: '6px 16px',
+    backgroundColor: theme.palette.secondary.dark,
+    color: "#ffffff",
+    textAlign: 'center',
   },
   paper: {
     padding: '6px 16px',
+    backgroundColor: 'transparent',
   },
   secondaryTail: {
     backgroundColor: theme.palette.secondary.main,
   },
+  title: {
+    color: "primary"
+  },
+  description: {
+    color: "secondary"
+  },
+  button:{
+    backgroundColor: '#f2f6f5',
+    textTransform: 'none'
+
+  }
 }));
 
 /** Create a box of all LInk */
@@ -53,7 +75,7 @@ const LinkIconBox = (props) => {
     if (linkData.githubLink !== null) {
       return (
         <Box p={1}>
-          <Button variant="contained" color="primary" href={linkData.githubLink}>GitHub</Button>
+          <Button variant="contained" className={classes.button} href={linkData.githubLink}>GitHub</Button>
         </Box>
       )
     } else { return (<></>) }
@@ -62,7 +84,7 @@ const LinkIconBox = (props) => {
     if (linkData.demoLink !== null) {
       return (
         <Box p={1}>
-          <Button variant="contained" color="primary" href={linkData.demoLink}>Demo</Button>
+          <Button variant="contained" className={classes.button} href={linkData.demoLink}>Demo</Button>
         </Box>
       )
     } else { return (<></>) }
@@ -71,7 +93,7 @@ const LinkIconBox = (props) => {
     if (linkData.mediumLink !== null) {
       return (
         <Box p={1}>
-          <Button variant="contained" color="primary" href={linkData.mediumLink}>Medium</Button>
+          <Button variant="contained" className={classes.button} href={linkData.mediumLink}>Medium</Button>
         </Box>
       )
     } else { return (<></>) }
@@ -93,37 +115,45 @@ export default function CustomizedTimeline() {
   const data = codingData.projectData || [];
 
   return (
-    <>
+    <div className={classes.root}>
+
+      <Grid item xs={12} className={classes.titleRoot} key={"programming-title"}>
+        <Paper className={classes.paperHeading}>
+          <Typography variant="h2" component="h3">01 Programming Projects</Typography><br></br>
+        </Paper>
+      </Grid>
+
       <Timeline align="alternate">
         {data.map((value, index) => {
           return (
             <TimelineItem xs={12} className={classes.timelineItemRoot} key={`timelineItem-${index}`}>
               <TimelineOppositeContent>
-                <Typography variant="body2" color="textSecondary">
-                  {value.year}
+              <Typography variant="subtitle1" color="textSecondary">
+                  <b>{value.year}</b>
                 </Typography>
               </TimelineOppositeContent>
               <TimelineSeparator>
-              <TimelineDot color="primary" />
-              <TimelineConnector />
+                <TimelineDot variant="outlined" color="primary" />
+                <TimelineConnector />
               </TimelineSeparator>
               {/* Content */}
               <TimelineContent className={classes.timelineContent}>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">{value.title}</Typography>
-                    <LinkIconBox linkProps={value.links} />
-                    <br></br>
-
-                    {value.description.split('\n').map((item, key) => {
-                      return <Typography component="p" key={key}>{item}</Typography>
-                    })}
-                  </Paper>
+                <Paper elevation={0} className={classes.paper}>
+                  <Typography variant="h4" component="h5" className={classes.title}>
+                    {value.title}
+                  </Typography>
+                  <LinkIconBox linkProps={value.links} />
+                  {value.description.split('\n').map((item, key) => {
+                    return (
+                      <Typography variant="subtitle1" component="p" key={key} className={classes.description}>{item}</Typography>
+                    )
+                  })}
+                </Paper>
               </TimelineContent>
             </TimelineItem>
-            // </Grid>
           )
         })}
       </Timeline>
-    </>
+    </div>
   );
 }
