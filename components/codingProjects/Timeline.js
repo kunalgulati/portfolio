@@ -91,9 +91,10 @@ const LinkIconBox = (props) => {
 export default function CustomizedTimeline() {
   const classes = useStyles();
   const data = codingData.projectData || [];
-  
+
   return (
-      <Timeline align="alternate" className={classes.root}>
+    <>
+      <Timeline align="alternate">
         {data.map((value, index) => {
           return (
             <TimelineItem xs={12} className={classes.timelineItemRoot} key={`timelineItem-${index}`}>
@@ -112,6 +113,7 @@ export default function CustomizedTimeline() {
                     <Typography variant="h6" component="h1">{value.title}</Typography>
                     <LinkIconBox linkProps={value.links} />
                     <br></br>
+
                     {value.description.split('\n').map((item, key) => {
                       return <Typography component="p" key={key}>{item}</Typography>
                     })}
@@ -122,5 +124,6 @@ export default function CustomizedTimeline() {
           )
         })}
       </Timeline>
+    </>
   );
 }
