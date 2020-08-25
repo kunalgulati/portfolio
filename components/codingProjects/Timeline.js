@@ -22,7 +22,7 @@ import codingData from '../../lib/data/codingProject'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: 'red',
+    flex: '1'
   },
   timelineItemRoot: {
     width: '100%',
@@ -91,44 +91,36 @@ const LinkIconBox = (props) => {
 export default function CustomizedTimeline() {
   const classes = useStyles();
   const data = codingData.projectData || [];
+  
   return (
-    <Grid container>
-      <Timeline align="left">
+      <Timeline align="alternate" className={classes.root}>
         {data.map((value, index) => {
           return (
-            <TimelineItem className={classes.timelineItemRoot} key={`timelineItem-${index}`}>
+            <TimelineItem xs={12} className={classes.timelineItemRoot} key={`timelineItem-${index}`}>
               <TimelineOppositeContent>
                 <Typography variant="body2" color="textSecondary">
                   {value.year}
                 </Typography>
               </TimelineOppositeContent>
               <TimelineSeparator>
-                <TimelineDot>
-                  <FastfoodIcon />
-                </TimelineDot>
-                <TimelineConnector />
+              <TimelineDot color="primary" />
+              <TimelineConnector />
               </TimelineSeparator>
               {/* Content */}
               <TimelineContent className={classes.timelineContent}>
-                <Grid item xs={12} key={`grid-${index}`}>
                   <Paper elevation={3} className={classes.paper}>
                     <Typography variant="h6" component="h1">{value.title}</Typography>
                     <LinkIconBox linkProps={value.links} />
                     <br></br>
-
                     {value.description.split('\n').map((item, key) => {
                       return <Typography component="p" key={key}>{item}</Typography>
                     })}
-
-                    {/* {value.description = value.description.replace(/\n/g, "<br />")} */}
-                    {/* <Typography component="p" >{value.description}</Typography> */}
                   </Paper>
-                </Grid>
               </TimelineContent>
             </TimelineItem>
+            // </Grid>
           )
         })}
       </Timeline>
-    </Grid>
   );
 }

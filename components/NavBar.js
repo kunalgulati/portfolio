@@ -39,14 +39,19 @@ export default function ButtonAppBar() {
     router.push('./codingProjects');
   }
 
+  const handleUxProjectsClick =(e)=> {
+    e.preventDefault();
+    router.push('./uxProjects');
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Button color="inherit" onClick={handleHomeClick}>Home</Button>
-          <Button color="inherit" onClick={handleAboutClick}>About</Button>
+          {/* <Button color="inherit" onClick={handleAboutClick}>About</Button> */}
           <Button color="inherit" onClick={handleCodingProjectClick}>Coding Project</Button>
-          <Button color="inherit">UX Project</Button>
+          <Button color="inherit" onClick={handleUxProjectsClick}>UX Project</Button>
           <Button color="inherit">Contact</Button>
         </Toolbar>
       </AppBar>

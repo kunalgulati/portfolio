@@ -3,6 +3,8 @@ import Grid from '@material-ui/core/Grid'
 import NavBar from '../components/NavBar';
 import DescriptionList from '../components/index/Description'
 import SkillSet from '../components/index/SkillSet'
+import WorkExperience from '../components/index/WorkExperience'
+
 import Footer from '../components/Footer';
 
 export default function Index() {
@@ -12,6 +14,7 @@ export default function Index() {
       <Grid container spacing={3}>
         <DescriptionList />
         <SkillSet/>
+        <WorkExperience/>
       </Grid>
       <Footer />
     </>
