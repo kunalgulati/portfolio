@@ -1,6 +1,8 @@
 # Kunal Gulati Portfolio
 While applying for jobs I was having a hard time putting and describing all my projects on a single-page document. I also wanted to see how long will it take me to build a portfolio from scratch? So I made this it :D 
 
+Visit: [https://kunalgulati.vercel.app/](https://kunalgulati.vercel.app/)
+
 
 ## Getting Started
 After cloning the Porject run the following commands 
